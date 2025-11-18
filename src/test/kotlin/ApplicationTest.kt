@@ -20,7 +20,7 @@ internal class ApplicationTest : NsTest() {
     fun 일반적인경우() {
         assertSimpleTest({
             run("1,2,3")
-            assertThat(output()).contains("결과: 2")
+            assertThat(output()).contains("[1, 2, 3]", "결과: 2")
         })
     }
 
