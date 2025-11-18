@@ -27,8 +27,8 @@ internal class ApplicationTest : NsTest() {
     @Test
     fun 구문추가() {
         assertSimpleTest({
-            run("//;\\n1")
-            assertThat(output()).contains("결과: 1")
+            run("//;\\n4;5;6")
+            assertThat(output()).contains("[4, 5, 6]", "결과: 1")
         })
     }
 
