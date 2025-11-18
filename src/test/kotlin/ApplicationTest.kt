@@ -9,7 +9,7 @@ import org.assertj.core.api.Assertions.assertThatThrownBy
 
 internal class ApplicationTest : NsTest() {
     @Test
-    fun test() {
+    fun 입출력_테스트() {
         assertSimpleTest({
             run("test")
             assertThat(output()).contains("test")
