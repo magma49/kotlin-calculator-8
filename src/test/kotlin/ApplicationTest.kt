@@ -11,8 +11,8 @@ internal class ApplicationTest : NsTest() {
     @Test
     fun test() {
         assertSimpleTest({
-            run("")
-            assertThat(output()).contains("")
+            run("test")
+            assertThat(output()).contains("test")
         })
     }
 
