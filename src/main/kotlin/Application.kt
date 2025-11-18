@@ -8,11 +8,15 @@ fun main() {
 
     var output = 0
 
+    var numString = emptyList<String>()
+
     if (input.isEmpty()) {
         output = 0
     } else if (input.take(2) == "//") {
         output = 1
     } else {
+        numString = input.split("[,:]".toRegex())
+        println(numString)
         output = 2
     }
     println("결과: " + output)
