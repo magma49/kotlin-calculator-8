@@ -9,10 +9,26 @@ import org.assertj.core.api.Assertions.assertThatThrownBy
 
 internal class ApplicationTest : NsTest() {
     @Test
-    fun 입출력_테스트() {
+    fun 빈문자열() {
         assertSimpleTest({
-            run("test")
-            assertThat(output()).contains("test")
+            run("\n")
+            assertThat(output()).contains("결과: 0")
+        })
+    }
+
+    @Test
+    fun 일반적인경우() {
+        assertSimpleTest({
+            run("1,2,3")
+            assertThat(output()).contains("결과: 2")
+        })
+    }
+
+    @Test
+    fun 구문추가() {
+        assertSimpleTest({
+            run("//;\\n1")
+            assertThat(output()).contains("결과: 1")
         })
     }
 
