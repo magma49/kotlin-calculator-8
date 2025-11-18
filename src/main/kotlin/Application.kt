@@ -13,6 +13,10 @@ fun main() {
     if (input.isEmpty()) {
         output = 0
     } else if (input.take(2) == "//") {
+        val inputSub = input.substring(2).split("\\n")
+        val syntax = "[,:" + inputSub[0] + "]"
+        numString = inputSub[1].split(syntax.toRegex())
+        println(numString)
         output = 1
     } else {
         numString = input.split("[,:]".toRegex())
