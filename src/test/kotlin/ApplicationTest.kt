@@ -20,15 +20,15 @@ internal class ApplicationTest : NsTest() {
     fun 일반적인경우() {
         assertSimpleTest({
             run("1,2,3")
-            assertThat(output()).contains("[1, 2, 3]", "결과: 2")
+            assertThat(output()).contains("[1, 2, 3]", "결과: 6")
         })
     }
 
     @Test
     fun 구문추가() {
         assertSimpleTest({
-            run("//;\\n4;5;6")
-            assertThat(output()).contains("[4, 5, 6]", "결과: 1")
+            run("//;\\n4;5,6")
+            assertThat(output()).contains("[4, 5, 6]", "결과: 15")
         })
     }
 
