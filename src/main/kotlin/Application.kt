@@ -27,10 +27,21 @@ fun main() {
     println("결과: " + output)
 }
 
-fun changeInt(numStr: List<String>): MutableList<Int> {
+fun changeInt(numString: List<String>): MutableList<Int> {
     val numInt = mutableListOf<Int>()
-    for (num in numStr) {
-        numInt.add(num.toInt())
+    for (numStr in numString) {
+        var num: Int
+
+        val numS = numStr.trim()
+        if (numS == "") continue
+        try {
+            num = numS.toInt()
+        } catch (e: NumberFormatException) {
+            throw IllegalArgumentException("[ERROR] 잘못된 입력: 구문 오류 또는 숫자 오류")
+        }
+        if (num < 0)
+            throw IllegalArgumentException("[ERROR] 잘못된 입력: 0이상인 숫자만 가능합니다")
+        numInt.add(num)
     }
     return numInt
 }
