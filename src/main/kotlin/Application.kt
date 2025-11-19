@@ -16,10 +16,8 @@ fun main() {
         val inputSub = input.substring(2).split("\\n")
         val syntax = "[,:" + inputSub[0] + "]"
         numString = inputSub[1].split(syntax.toRegex())
-        println(numString)
     } else {
         numString = input.split("[,:]".toRegex())
-        println(numString)
     }
     if (!numString.isEmpty())
         output = changeInt(numString).sum()
