@@ -54,6 +54,7 @@ internal class ApplicationTest : NsTest() {
         assertSimpleTest {
             assertThatThrownBy { runException("2,3,-1") }
                 .isInstanceOf(IllegalArgumentException::class.java)
+                .hasMessageContaining("[ERROR] 0이상의 정수만 입력해주세요.")
         }
     }
 
@@ -62,6 +63,7 @@ internal class ApplicationTest : NsTest() {
         assertSimpleTest {
             assertThatThrownBy { runException("2,3,k") }
                 .isInstanceOf(IllegalArgumentException::class.java)
+                .hasMessageContaining("[ERROR] 숫자만 입력해주세요.")
         }
     }
 
@@ -70,6 +72,7 @@ internal class ApplicationTest : NsTest() {
         assertSimpleTest {
             assertThatThrownBy { runException("2,3 4") }
                 .isInstanceOf(IllegalArgumentException::class.java)
+                .hasMessageContaining("[ERROR] 숫자만 입력해주세요.")
         }
     }
 
@@ -78,6 +81,7 @@ internal class ApplicationTest : NsTest() {
         assertSimpleTest {
             assertThatThrownBy { runException("//;\\n4;5&6") }
                 .isInstanceOf(IllegalArgumentException::class.java)
+                .hasMessageContaining("[ERROR] 숫자만 입력해주세요.")
         }
     }
 
